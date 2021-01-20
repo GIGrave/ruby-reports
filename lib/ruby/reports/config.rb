@@ -14,7 +14,8 @@ module Ruby
         :encoding,
         :expire_in,
         :csv_options,
-        :storage
+        :storage,
+        :queue
       ]
 
       def self.config_attributes
