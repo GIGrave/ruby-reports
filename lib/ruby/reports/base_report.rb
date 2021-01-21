@@ -69,8 +69,6 @@ module Ruby
     #     end
     #   end
     class BaseReport
-      extend Forwardable
-
       class << self
         attr_reader :config_hash, :table_block, :progress_handle_block, :error_handle_block
 
@@ -93,7 +91,6 @@ module Ruby
       end
 
       attr_reader :args, :job_id, :events_handler
-      def_delegators :cache_file, :filename, :exists?, :ready?
 
       #--
       # Public instance methods
@@ -118,6 +115,18 @@ module Ruby
 
       def error_handler(&block)
         @error_handle_block = block
+      end
+
+      def filename
+        cache_file.filename
+      end
+
+      def exists?
+        cache_file.exists?
+      end
+
+      def ready?
+        cache_file.ready?
       end
 
       private

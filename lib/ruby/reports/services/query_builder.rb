@@ -2,21 +2,19 @@ module Ruby
   module Reports
     module Services
       class QueryBuilder
-        extend Forwardable
         pattr_initialize :report, :config
 
         def request_count
-          execute(count)[0]['count'].to_i
+          connection.execute(count)[0]['count'].to_i
         end
 
         def request_batch(offset)
-          execute take_batch(config.batch_size, offset)
+          connection.execute take_batch(config.batch_size, offset)
         end
 
         private
 
-        def_delegator :connection, :execute
-
+        # TODO: WTF?! Where is AR dependcy? Move to arg of constructor
         def connection
           ActiveRecord::Base.connection
         end
