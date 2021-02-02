@@ -1,3 +1,9 @@
+# v0.1.2
+
+* 2021-02-02 [65de7aa](../../commit/65de7aa) - __(Andrew N. Shalaev)__ Release v0.1.2 
+* 2021-02-02 [0271e83](../../commit/0271e83) - __(Andrew N. Shalaev)__ fix: remove queue attribute from default config 
+https://jira.railsc.ru/browse/BPC-18152
+
 # v0.1.1
 
 * 2021-01-20 [0b5aa59](../../commit/0b5aa59) - __(Andrew N. Shalaev)__ fix: remove Forwardable module 
