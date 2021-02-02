@@ -6,7 +6,6 @@ require 'ruby/reports/csv_report'
 
 class MyCsvReport < Ruby::Reports::CsvReport
   config(
-    queue: :csv_reports,
     source: :select_data,
     storage: Ruby::Reports::Storages::HASH,
     encoding: 'utf-8',

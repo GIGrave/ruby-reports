@@ -24,7 +24,6 @@ end
 
 class MyReport < MyTypeReport
   config(
-    queue: :my_type_reports,
     source: :select_data,
     encoding: 'utf-8',
     directory: File.join(Dir.tmpdir, 'ruby-reports')
