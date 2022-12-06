@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 module Ruby
   module Reports
     class Config
       BATCH_SIZE = 10_000
       DEFAULT_EXPIRE_TIME = 86_400
-      DEFAULT_CODING = 'utf-8'.freeze
+      DEFAULT_CODING = 'utf-8'
       DEFAULT_CSV_OPTIONS = {col_sep: ';', row_sep: "\r\n"}
+      DEFAULT_QUEUE = 'reports'
 
       DEFAULT_CONFIG_ATTRIBUTES = [
         :directory,
@@ -14,7 +17,8 @@ module Ruby
         :encoding,
         :expire_in,
         :csv_options,
-        :storage
+        :storage,
+        :queue,
       ]
 
       def self.config_attributes
@@ -28,6 +32,7 @@ module Ruby
         @expire_in ||= DEFAULT_EXPIRE_TIME
         @csv_options ||= DEFAULT_CSV_OPTIONS
         @storage ||= Storages::OBJECT
+        @queue ||= DEFAULT_QUEUE
       end
     end
   end
